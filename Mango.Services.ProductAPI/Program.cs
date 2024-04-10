@@ -1,5 +1,6 @@
 using AutoMapper;
 using Mango.Services.ProductAPI.DbContexts;
+using Mango.Services.ProductAPI.Repository;
 using Microsoft.EntityFrameworkCore;
 using System.Reflection;
 
@@ -21,6 +22,8 @@ namespace Mango.Services.ProductAPI
 			IMapper mapper = MappingConfig.RegisterMaps().CreateMapper();
 			services.AddSingleton(mapper);
 			services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
+
+			services.AddScoped<IProductRepository, ProductRepository>();
 
 
 
